@@ -31,6 +31,7 @@ module Digidoc
       self.endpoint_url = endpoint_url || TestEndpointUrl
       self.respond_with_nested_struct = true
       self.embedded_datafiles = []
+      self.logger = Logger.new('log/webservices.log')
     end
 
     # Authentication message
@@ -321,7 +322,7 @@ module Digidoc
         open_timeout: 10,
         ssl_version: :TLSv1,
         ssl_verify_mode: :none,
-        #logger: Client.logger,
+        logger: Client.logger,
         log_level: :debug,
         log: true
       )
