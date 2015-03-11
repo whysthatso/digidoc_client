@@ -6,7 +6,6 @@ require 'crack/xml'
 require 'mime/types'
 require 'digest/sha1'
 require 'nokogiri'
-require 'logger'
 
 class NestedOpenStruct < OpenStruct
   def initialize(hash = nil)
@@ -31,7 +30,6 @@ module Digidoc
       self.endpoint_url = endpoint_url || TestEndpointUrl
       self.respond_with_nested_struct = true
       self.embedded_datafiles = []
-      self.logger = Logger.new('log/webservices.log')
     end
 
     # Authentication message
